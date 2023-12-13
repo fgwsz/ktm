@@ -1,53 +1,32 @@
 ﻿#pragma once
-
+#include<Windows.h>
 class Mouse{
-public:
-    // 模拟鼠标左键按下
-    static void mouseLeftDown();
-    // 模拟鼠标左键抬起
-    static void mouseLeftUp();
-    // 模拟鼠标右键按下
-    static void mouseRightDown();
-    // 模拟鼠标右键抬起
-    static void mouseRightUp();
-    // 模拟鼠标左键单击
-    static void mouseLeftClick();
-    // 模拟鼠标左键双击
-    static void mouseLeftDoubleClick();
-    // 模拟鼠标右键单击
-    static void mouseRightClick();
-    // 模拟鼠标向上移动
-    static void mouseMoveUp();
-    // 模拟鼠标向下移动
-    static void mouseMoveDown();
-    // 模拟鼠标向左移动
-    static void mouseMoveLeft();
-    // 模拟鼠标向右移动
-    static void mouseMoveRight();
-    // 模拟鼠标滚轮向上滑动
-    static void mouseWheelUp();
-    // 模拟鼠标滚轮向下滑动
-    static void mouseWheelDown();
-    // 鼠标位置结构体
-    struct Position{
-        // x坐标
-        int x;
-        // y坐标
-        int y;
-    };
-    // 得到鼠标所在位置
-    static void mousePosition(Position& position);
-private:
     static void _mouseClick(DWORD dw_flags);
     static void _mouseMove(LONG dx,LONG dy);
     static void _mouseWheel(DWORD scroll_amount);
 public:
+    static void mouseLeftDown();
+    static void mouseLeftUp();
+    static void mouseRightDown();
+    static void mouseRightUp();
+    static void mouseLeftClick();
+    static void mouseLeftDoubleClick();
+    static void mouseRightClick();
+    static void mouseMoveUp();
+    static void mouseMoveDown();
+    static void mouseMoveLeft();
+    static void mouseMoveRight();
+    static void mouseWheelUp();
+    static void mouseWheelDown();
+    struct Position{
+        int x;
+        int y;
+    };
+    static void mousePosition(Position& position);
     static DWORD current_dpixel_;
-    static constexpr DWORD default_dpixel_=32;
+    static constexpr DWORD const default_dpixel_=32;
 };
-
 DWORD Mouse::current_dpixel_=Mouse::default_dpixel_;
-
 void Mouse::_mouseClick(DWORD dw_flags){
     INPUT input;
     input.type = INPUT_MOUSE;
