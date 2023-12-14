@@ -2,12 +2,12 @@
 #include<unordered_map>
 #include<string>
 #include<Windows.h>
-#include"key_code.hpp"
-#include"key_name.hpp"
+#include"keycode.hpp"
+#include"keyname.hpp"
 class KeyBoard{
     static ::std::unordered_map<DWORD,::std::string> key_code_to_name_map_;
 public:
-    static ::std::string const& keyCodeToName(DWORD key_code)noexcept;
+    static ::std::string const& key_code_to_name(DWORD key_code)noexcept;
 };
 ::std::unordered_map<DWORD,::std::string> KeyBoard::key_code_to_name_map_={
     {KeyCode_A,KeyName_A},
@@ -103,9 +103,9 @@ public:
     {KeyCode_RightSquareBracket,KeyName_RightSquareBracket},
     {KeyCode_SingleQuote       ,KeyName_SingleQuote       }
 };
-::std::string const& KeyBoard::keyCodeToName(DWORD key_code)noexcept{
+::std::string const& KeyBoard::key_code_to_name(DWORD key_code)noexcept{
     if(KeyBoard::key_code_to_name_map_.count(key_code)==0){
-        KeyBoard::key_code_to_name_map_.emplace(key_code,::std::to_string(key_code));
+        KeyBoard::key_code_to_name_map_.emplace(key_code,"\\"+::std::to_string(key_code));
     }
     return KeyBoard::key_code_to_name_map_.at(key_code);
 }

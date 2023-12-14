@@ -1,5 +1,5 @@
 #pragma once
-#include"key_code.hpp"
+#include"keycode.hpp"
 // 快捷键设置
 struct KeyCodeOf{
 static constexpr DWORD leader                 =KeyCode_LeftAlt;
