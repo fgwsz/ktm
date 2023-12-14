@@ -5,5 +5,5 @@ cd mingw_build
 cmake -G"MinGW Makefiles" ..
 cmake --build .   
 cd ..
-cp mingw_build/keyboard_to_mouse_2.exe keyboard_to_mouse_2.exe
-./keyboard_to_mouse_2.exe
+cp mingw_build/ktm.exe ktm.exe
+./ktm.exe

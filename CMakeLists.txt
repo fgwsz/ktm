@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(keyboard_to_mouse_2 VERSION 0.0.1 LANGUAGES CXX)
+project(ktm VERSION 0.0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 aux_source_directory(src SRC_DIR)
 include_directories(include)

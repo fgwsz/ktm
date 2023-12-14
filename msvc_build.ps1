@@ -5,5 +5,5 @@ cd msvc_build
 cmake -G"Visual Studio 17 2022" ..
 cmake --build .   
 cd ..
-cp msvc_build/Debug/keyboard_to_mouse_2.exe keyboard_to_mouse_2.exe
-./keyboard_to_mouse_2.exe
+cp msvc_build/Debug/ktm.exe ktm.exe
+./ktm.exe

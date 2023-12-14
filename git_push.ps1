@@ -1,7 +1,7 @@
 git add include/*
 git add src/*
 git add CMakeLists.txt
-git add keyboard_to_mouse_2.exe
+git add ktm.exe
 git add README.md
 git add msvc_build.ps1
 git add mingw_build.ps1
