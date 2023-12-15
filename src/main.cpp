@@ -10,6 +10,6 @@ int main() {
         //不显示打印信息
         Logger::set_global_enable(false);
     #endif
-    message_loop();
+    ::message_loop();
     return 0;
 }

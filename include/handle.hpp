@@ -1,4 +1,7 @@
 #pragma once
+extern "C"{
+#include<stdlib.h>
+}
 #include<unordered_map>
 #include<stack>
 #include"logger.hpp"
@@ -90,7 +93,7 @@ static void mouse_wheel_down()noexcept{
 }
 static void app_quit()noexcept{
     app_logger.println_with_head("Quit");
-    exit(0);
+    ::exit(0);
 }
 static void mouse_dpixel_double()noexcept{
     Mouse::current_dpixel_=Mouse::current_dpixel_*2;

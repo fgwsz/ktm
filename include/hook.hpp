@@ -18,7 +18,7 @@ public:
             hook_logger.println_with_head("Install Ok");
         }else{
             hook_logger.println_with_head("Install Error");
-            exit(1);
+            ::exit(1);
         }
     }
     ~Hook()noexcept{// 析构时自动卸载全局钩子
