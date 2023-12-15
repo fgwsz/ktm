@@ -5,5 +5,5 @@ cd mingw_build
 cmake -G"MinGW Makefiles" ..
 cmake --build . --config Release
 cd ..
-cp mingw_build/ktm.exe ktm.exe
-./ktm.exe
+cp mingw_build/ktm.exe "ktm-mingw_build.exe"
+./"ktm-mingw_build.exe"

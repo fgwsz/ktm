@@ -4,8 +4,27 @@
 并实时将键盘快捷键映射为对应的鼠标操作。
 
 # 安装
-无需安装，鼠标左键双击`ktm.exe`文件即可运行。
-`ktm.exe`本身是控制台应用，
+因用户系统环境可能存在差异，本项目不发布二进制文件(.exe)，
+需用户安装环境依赖，自行构建二进制文件(.exe)。  
+所需环境依赖：  
+`CMake>=3.0`  
+`Visual Studio>=2017`  
+or  
+`MinGW-W64>=7.0.0`  
+（注意：需确保MinGW-W64自带的CMake版本>=3.0）
+
+## Visual Studio 构建
+安装`CMake`和`Visual Studio`，安装完成之后，
+鼠标左键双击`msvc_build.ps1`生成`ktm-msvc_build.exe`并运行。
+
+## MinGW-W64 构建
+安装`MinGW-W64`，安装完成之后，
+鼠标左键双击`mingw_build.ps1`生成`ktm-mingw_build.exe`并运行。
+
+## 使用
+将构建生成的二进制文件(.exe)重命名为`ktm.exe`，
+鼠标左键双击即可运行。
+由于`ktm.exe`本身是控制台应用，
 因此能在终端中通过终端命令/脚本等方式调用运行。
 
 # 设置为开机启动
