@@ -3,7 +3,7 @@ if(Test-Path -Path msvc_build){}else{
 }
 cd msvc_build
 cmake -G"Visual Studio 17 2022" ..
-cmake --build .   
+cmake --build . --config Release
 cd ..
-cp msvc_build/Debug/ktm.exe ktm.exe
+cp msvc_build/Release/ktm.exe ktm.exe
 ./ktm.exe

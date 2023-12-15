@@ -1,7 +1,7 @@
 ﻿#include"config.hpp"
 int main() {
-    #define DEBUG
-    #ifdef DEBUG
+    #define CONSOLE_ENABLE
+    #ifdef CONSOLE_ENABLE
         //显示打印信息
         Logger::set_global_enable(true);
     #else

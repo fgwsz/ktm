@@ -3,7 +3,7 @@ if(Test-Path -Path mingw_build){}else{
 }
 cd mingw_build
 cmake -G"MinGW Makefiles" ..
-cmake --build .   
+cmake --build . --config Release
 cd ..
 cp mingw_build/ktm.exe ktm.exe
 ./ktm.exe
