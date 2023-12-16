@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include<Windows.h>
-#include<type_traits>
 struct Mouse{
     struct Position{
         long x,y;
