@@ -1,13 +1,14 @@
 ﻿#pragma once
 #include<type_traits>
 #include<iostream>
+#include<string_view>
 class Logger{
     static bool global_enable_;
-    ::std::string head_;
+    ::std::string_view head_;
     static bool init_flag_;
     static inline bool _init()noexcept;
 public:
-    inline Logger(::std::string const& head="")noexcept
+    constexpr Logger(::std::string_view const& head="")noexcept
         :head_(head)
     {}
     static constexpr void set_global_enable(bool global_enable)noexcept{

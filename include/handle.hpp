@@ -45,12 +45,12 @@ static ::std::unordered_map<DWORD,void(*)()noexcept> const key_down_handle_list=
 static bool is_leader_down=false;
 static bool is_mouse_left_down=false;
 static bool is_mouse_right_down=false;
-static Logger const mouse_logger   ("[MOU] ");
-static Logger const cursor_logger  ("[CUR] ");
-static Logger const keyboard_logger("[KEY] ");
-static Logger const pixel_logger   ("[PIX] ");
-static Logger const wheel_logger   ("[WHE] ");
-static Logger const app_logger     ("[APP] ");
+static constexpr Logger mouse_logger   ("[MOU] ");
+static constexpr Logger cursor_logger  ("[CUR] ");
+static constexpr Logger keyboard_logger("[KEY] ");
+static constexpr Logger pixel_logger   ("[PIX] ");
+static constexpr Logger wheel_logger   ("[WHE] ");
+static constexpr Logger app_logger     ("[APP] ");
 static OrderedSet<DWORD> key_down_set={};
 #define _mouse_key_auto_up() do{ \
     if(::handle_detail::is_mouse_left_down){ \

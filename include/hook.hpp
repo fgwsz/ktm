@@ -8,7 +8,7 @@ static inline LRESULT CALLBACK callback(int n_code,WPARAM w_param,LPARAM l_param
     }
     return ::CallNextHookEx(NULL,n_code,w_param,l_param);
 }
-static Logger const hook_logger("[HOO] ");
+static constexpr Logger hook_logger("[HOO] ");
 class Hook final{// 全局钩子外覆类
     HHOOK h_hook_;
 public:
