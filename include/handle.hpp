@@ -10,22 +10,22 @@ extern "C"{
 #include"mouse.hpp"
 #include"ordered_set.hpp"
 namespace handle_detail{
-static inline void mouse_move_up          ()noexcept;
-static inline void mouse_move_down        ()noexcept;
-static inline void mouse_move_left        ()noexcept;
-static inline void mouse_move_right       ()noexcept;
-static inline void mouse_wheel_up         ()noexcept;
-static inline void mouse_wheel_down       ()noexcept;
-static inline void mouse_left_click       ()noexcept;
-static inline void mouse_left_double_click()noexcept;
-static inline void mouse_right_click      ()noexcept;
-static inline void mouse_key_up           ()noexcept;
-static inline void mouse_left_down        ()noexcept;
-static inline void mouse_right_down       ()noexcept;
-static inline void mouse_dpixel_double    ()noexcept;
-static inline void mouse_dpixel_halve     ()noexcept;
-static inline void app_quit               ()noexcept;
-static ::std::unordered_map<DWORD,void(*)()noexcept> const key_down_handle_list={
+static inline void mouse_move_up          (void)noexcept;
+static inline void mouse_move_down        (void)noexcept;
+static inline void mouse_move_left        (void)noexcept;
+static inline void mouse_move_right       (void)noexcept;
+static inline void mouse_wheel_up         (void)noexcept;
+static inline void mouse_wheel_down       (void)noexcept;
+static inline void mouse_left_click       (void)noexcept;
+static inline void mouse_left_double_click(void)noexcept;
+static inline void mouse_right_click      (void)noexcept;
+static inline void mouse_key_up           (void)noexcept;
+static inline void mouse_left_down        (void)noexcept;
+static inline void mouse_right_down       (void)noexcept;
+static inline void mouse_dpixel_double    (void)noexcept;
+static inline void mouse_dpixel_halve     (void)noexcept;
+static inline void app_quit               (void)noexcept;
+static ::std::unordered_map<DWORD,void(*)(void)noexcept> const key_down_handle_list={
     {KeyCodeOf::mouse_move_up          ,mouse_move_up          },
     {KeyCodeOf::mouse_move_down        ,mouse_move_down        },
     {KeyCodeOf::mouse_move_left        ,mouse_move_left        },
@@ -64,73 +64,73 @@ static OrderedSet<DWORD> key_down_set={};
     } \
 }while(0) \
 //
-void mouse_move_left()noexcept{ 
+void mouse_move_left(void)noexcept{ 
     _Mouse_move_left();
     cursor_logger.println_with_head(
         "← Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
-void mouse_move_down()noexcept{
+void mouse_move_down(void)noexcept{
     _Mouse_move_down();
     cursor_logger.println_with_head(
         "↓ Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
-void mouse_move_up()noexcept{
+void mouse_move_up(void)noexcept{
     _Mouse_move_up();
     cursor_logger.println_with_head(
         "↑ Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
-void mouse_move_right()noexcept{
+void mouse_move_right(void)noexcept{
     _Mouse_move_right();
     cursor_logger.println_with_head(
         "→ Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
-void mouse_wheel_up()noexcept{
+void mouse_wheel_up(void)noexcept{
     _Mouse_wheel_up();
     wheel_logger.println_with_head("↑ Pix{",_Mouse_current_dpixel,"}");
 }
-void mouse_wheel_down()noexcept{
+void mouse_wheel_down(void)noexcept{
     _Mouse_wheel_down();
     wheel_logger.println_with_head("↓ Pix{",_Mouse_current_dpixel,"}");
 }
-void app_quit()noexcept{
+void app_quit(void)noexcept{
     app_logger.println_with_head("Quit");
     ::exit(0);
 }
-void mouse_dpixel_double()noexcept{
+void mouse_dpixel_double(void)noexcept{
     _Mouse_current_dpixel=_Mouse_current_dpixel*2;
     pixel_logger.println_with_head("D_Pixel * 2 => ",_Mouse_current_dpixel);
 }
-void mouse_dpixel_halve()noexcept{
+void mouse_dpixel_halve(void)noexcept{
     _Mouse_current_dpixel=_Mouse_current_dpixel/2!=0
         ?_Mouse_current_dpixel/2
         :1;
     pixel_logger.println_with_head("D_Pixel / 2 => ",_Mouse_current_dpixel);
 }
-void mouse_key_up()noexcept{
+void mouse_key_up(void)noexcept{
     _mouse_key_auto_up();
 }
-void mouse_left_click()noexcept{
+void mouse_left_click(void)noexcept{
     _mouse_key_auto_up();
     _Mouse_left_click();
     mouse_logger.println_with_head("Left Click");
 }
-void mouse_left_double_click()noexcept{
+void mouse_left_double_click(void)noexcept{
     _mouse_key_auto_up();
     _Mouse_left_double_click();
     mouse_logger.println_with_head("Left Double Click");
 }
-void mouse_right_click()noexcept{
+void mouse_right_click(void)noexcept{
     _mouse_key_auto_up();
     _Mouse_right_click();
     mouse_logger.println_with_head("Right Click");
 }
-void mouse_left_down()noexcept{
+void mouse_left_down(void)noexcept{
     _mouse_key_auto_up();
     _Mouse_left_down();
     is_mouse_left_down=true;
     mouse_logger.println_with_head("Left Down");
 }
-void mouse_right_down()noexcept{
+void mouse_right_down(void)noexcept{
     _mouse_key_auto_up();
     _Mouse_right_down();
     is_mouse_right_down=true;

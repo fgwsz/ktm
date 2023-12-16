@@ -1,5 +1,5 @@
 ﻿#include"config.hpp"
-int main()noexcept{
+int main(void)noexcept{
     _message_loop();
     return 0;
 }
