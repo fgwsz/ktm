@@ -6,7 +6,7 @@ extern "C"{
 #include<stack>
 #include"logger.hpp"
 #include"keycode_of.hpp"
-#include"keyboard.hpp"
+#include"keycode_to_name.hpp"
 #include"mouse.hpp"
 #include"ordered_set.hpp"
 namespace handle_detail{
@@ -54,99 +54,99 @@ static Logger const app_logger     ("[APP] ");
 static OrderedSet<DWORD> key_down_set={};
 #define _mouse_key_auto_up() do{ \
     if(::handle_detail::is_mouse_left_down){ \
-        _Mouse_mouse_left_up(); \
+        _Mouse_left_up(); \
         ::handle_detail::is_mouse_left_down=false; \
         ::handle_detail::mouse_logger.println_with_head("Left Up"); \
     }else if(::handle_detail::is_mouse_right_down){ \
-        _Mouse_mouse_right_up(); \
+        _Mouse_right_up(); \
         ::handle_detail::is_mouse_right_down=false; \
         ::handle_detail::mouse_logger.println_with_head("Right Up"); \
     } \
 }while(0) \
 //
 void mouse_move_left()noexcept{ 
-    _Mouse_mouse_move_left();
+    _Mouse_move_left();
     cursor_logger.println_with_head(
-        "← Pix{",Mouse::current_dpixel_,"} => ",Mouse::mouse_position());
+        "← Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
 void mouse_move_down()noexcept{
-    _Mouse_mouse_move_down();
+    _Mouse_move_down();
     cursor_logger.println_with_head(
-        "↓ Pix{",Mouse::current_dpixel_,"} => ",Mouse::mouse_position());
+        "↓ Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
 void mouse_move_up()noexcept{
-    _Mouse_mouse_move_up();
+    _Mouse_move_up();
     cursor_logger.println_with_head(
-        "↑ Pix{",Mouse::current_dpixel_,"} => ",Mouse::mouse_position());
+        "↑ Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
 void mouse_move_right()noexcept{
-    _Mouse_mouse_move_right();
+    _Mouse_move_right();
     cursor_logger.println_with_head(
-        "→ Pix{",Mouse::current_dpixel_,"} => ",Mouse::mouse_position());
+        "→ Pix{",_Mouse_current_dpixel,"} => ",_Mouse_current_position);
 }
 void mouse_wheel_up()noexcept{
-    _Mouse_mouse_wheel_up();
-    wheel_logger.println_with_head("↑ Pix{",Mouse::current_dpixel_,"}");
+    _Mouse_wheel_up();
+    wheel_logger.println_with_head("↑ Pix{",_Mouse_current_dpixel,"}");
 }
 void mouse_wheel_down()noexcept{
-    _Mouse_mouse_wheel_down();
-    wheel_logger.println_with_head("↓ Pix{",Mouse::current_dpixel_,"}");
+    _Mouse_wheel_down();
+    wheel_logger.println_with_head("↓ Pix{",_Mouse_current_dpixel,"}");
 }
 void app_quit()noexcept{
     app_logger.println_with_head("Quit");
     ::exit(0);
 }
 void mouse_dpixel_double()noexcept{
-    Mouse::current_dpixel_=Mouse::current_dpixel_*2;
-    pixel_logger.println_with_head("D_Pixel * 2 => ",Mouse::current_dpixel_);
+    _Mouse_current_dpixel=_Mouse_current_dpixel*2;
+    pixel_logger.println_with_head("D_Pixel * 2 => ",_Mouse_current_dpixel);
 }
 void mouse_dpixel_halve()noexcept{
-    Mouse::current_dpixel_=Mouse::current_dpixel_/2!=0
-        ?Mouse::current_dpixel_/2
+    _Mouse_current_dpixel=_Mouse_current_dpixel/2!=0
+        ?_Mouse_current_dpixel/2
         :1;
-    pixel_logger.println_with_head("D_Pixel / 2 => ",Mouse::current_dpixel_);
+    pixel_logger.println_with_head("D_Pixel / 2 => ",_Mouse_current_dpixel);
 }
 void mouse_key_up()noexcept{
     _mouse_key_auto_up();
 }
 void mouse_left_click()noexcept{
     _mouse_key_auto_up();
-    _Mouse_mouse_left_click();
+    _Mouse_left_click();
     mouse_logger.println_with_head("Left Click");
 }
 void mouse_left_double_click()noexcept{
     _mouse_key_auto_up();
-    _Mouse_mouse_left_double_click();
+    _Mouse_left_double_click();
     mouse_logger.println_with_head("Left Double Click");
 }
 void mouse_right_click()noexcept{
     _mouse_key_auto_up();
-    _Mouse_mouse_right_click();
+    _Mouse_right_click();
     mouse_logger.println_with_head("Right Click");
 }
 void mouse_left_down()noexcept{
     _mouse_key_auto_up();
-    _Mouse_mouse_left_down();
+    _Mouse_left_down();
     is_mouse_left_down=true;
     mouse_logger.println_with_head("Left Down");
 }
 void mouse_right_down()noexcept{
     _mouse_key_auto_up();
-    _Mouse_mouse_right_down();
+    _Mouse_right_down();
     is_mouse_right_down=true;
     mouse_logger.println_with_head("Right Down");
 }
 #define _println_key_down() do{ \
     ::handle_detail::keyboard_logger.print_with_head(); \
     ::handle_detail::key_down_set.for_each([](DWORD const& key){ \
-        ::handle_detail::keyboard_logger.print("<",KeyBoard::key_code_to_name(key),">"); \
+        ::handle_detail::keyboard_logger.print("<",keycode_to_name[key],">"); \
     }); \
     ::handle_detail::keyboard_logger.println(" Down"); \
 }while(0) \
 //
 #define _println_key_up(__vk_code__) do{ \
     ::handle_detail::keyboard_logger.println_with_head( \
-        "<",KeyBoard::key_code_to_name(DWORD(__vk_code__)),">", \
+        "<",keycode_to_name[DWORD(__vk_code__)],">", \
         " Up" \
     ); \
 }while(0) \
