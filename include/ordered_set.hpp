@@ -1,6 +1,7 @@
 #pragma once
 #include<unordered_map>
 #include<list>
+#include<type_traits>
 template<typename _Type>
 class OrderedSet{
     using list_iterator=typename ::std::list<_Type>::iterator;
@@ -22,9 +23,9 @@ public:
         }
     }
     template<typename _Func>
-    inline constexpr void for_each(_Func func)const noexcept{
+    inline constexpr void for_each(_Func&& func)const noexcept{
         for(auto const& element:this->list_){
-            func(element);
+            ::std::forward<_Func>(func)(element);
         }
     }
 };
