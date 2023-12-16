@@ -5,9 +5,9 @@ class Logger{
     static bool global_enable_;
     ::std::string head_;
     static bool init_flag_;
-    static bool _init()noexcept;
+    static inline bool _init()noexcept;
 public:
-    Logger(::std::string const& head="")noexcept
+    inline Logger(::std::string const& head="")noexcept
         :head_(head)
     {}
     static constexpr void set_global_enable(bool global_enable)noexcept{

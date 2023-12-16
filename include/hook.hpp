@@ -2,13 +2,13 @@
 #include"handle.hpp"
 namespace hook_detail{
 // 全局键盘钩子回调函数
-static LRESULT CALLBACK callback(int n_code,WPARAM w_param,LPARAM l_param)noexcept{
+static inline LRESULT CALLBACK callback(int n_code,WPARAM w_param,LPARAM l_param)noexcept{
     if (n_code==HC_ACTION){
-        ::handle_detail::handle(w_param,((KBDLLHOOKSTRUCT*)l_param)->vkCode);
+        _handle(w_param,((KBDLLHOOKSTRUCT*)l_param)->vkCode);
     }
     return ::CallNextHookEx(NULL,n_code,w_param,l_param);
 }
-static Logger hook_logger("[HOO] ");
+static Logger const hook_logger("[HOO] ");
 class Hook final{// 全局钩子外覆类
     HHOOK h_hook_;
 public:
@@ -21,7 +21,7 @@ public:
             ::exit(1);
         }
     }
-    ~Hook()noexcept{// 析构时自动卸载全局钩子
+    inline ~Hook()noexcept{// 析构时自动卸载全局钩子
         if(this->h_hook_&&::UnhookWindowsHookEx(this->h_hook_)){
             hook_logger.println_with_head("Uninstall Ok");
         }else{
@@ -34,11 +34,11 @@ public:
 // 在进程结束时自动回收静态变量，从而调用析构函数卸载全局钩子
 static Hook h_hook={SetWindowsHookEx(WH_KEYBOARD_LL,callback,NULL,0)};
 }//namespace hook_detail
-// 消息循环
-static void message_loop()noexcept{
-    MSG msg;
-    while (GetMessage(&msg,NULL,0,0)){
-        ::TranslateMessage(&msg);
-        DispatchMessage(&msg);
-    }
-}
+#define _message_loop() do{ \
+    MSG msg; \
+    while (GetMessage(&msg,NULL,0,0)){ \
+        ::TranslateMessage(&msg); \
+        DispatchMessage(&msg); \
+    } \
+}while(0) \
+//

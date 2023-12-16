@@ -7,7 +7,7 @@
 class KeyBoard{
     static ::std::unordered_map<DWORD,::std::string> key_code_to_name_map_;
 public:
-    static ::std::string const& key_code_to_name(DWORD key_code)noexcept;
+    static inline ::std::string const& key_code_to_name(DWORD key_code)noexcept;
 };
 ::std::unordered_map<DWORD,::std::string> KeyBoard::key_code_to_name_map_={
     {KeyCode_A,KeyName_A},
