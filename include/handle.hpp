@@ -166,30 +166,32 @@ void mouse_right_down()noexcept{
 }while(0) \
 //
 #define _handle(__w_param__,__vk_code__) do{ \
+    auto _w_param=WPARAM(__w_param__); \
+    auto _vk_code=DWORD(__vk_code__); \
     /*<X>单键和<ALT-X>组合键以及其他组合键按下时*/ \
-    if (WPARAM(__w_param__)==WM_KEYDOWN||WPARAM(__w_param__)==WM_SYSKEYDOWN) { \
+    if (_w_param==WM_KEYDOWN||_w_param==WM_SYSKEYDOWN) { \
         /*防止其他进程把全局键盘事件截获，造成逻辑上的bug*/ \
         _key_down_set_update(); \
-        if(!::handle_detail::key_down_set.has(DWORD(__vk_code__))){ \
-            ::handle_detail::key_down_set.insert(DWORD(__vk_code__)); \
+        if(!::handle_detail::key_down_set.has(_vk_code)){ \
+            ::handle_detail::key_down_set.insert(_vk_code); \
             _println_key_down(); \
         } \
-        if(DWORD(__vk_code__)==KeyCodeOf::leader){ \
+        if(_vk_code==KeyCodeOf::leader){ \
             ::handle_detail::is_leader_down=true; \
         } \
         else if(::handle_detail::is_leader_down&& \
-                ::handle_detail::key_down_handle_list.count(DWORD(__vk_code__))!=0){ \
-            ::handle_detail::key_down_handle_list.at(DWORD(__vk_code__))(); \
+                ::handle_detail::key_down_handle_list.count(_vk_code)!=0){ \
+            ::handle_detail::key_down_handle_list.at(_vk_code)(); \
         } \
     } \
     /*<X>单键和<ALT-X>组合键以及其他组合键抬起时*/ \
-    else if (WPARAM(__w_param__)==WM_KEYUP||WPARAM(__w_param__)==WM_SYSKEYUP) { \
-        ::handle_detail::key_down_set.erase(DWORD(__vk_code__)); \
+    else if (_w_param==WM_KEYUP||_w_param==WM_SYSKEYUP) { \
+        ::handle_detail::key_down_set.erase(_vk_code); \
         _key_down_set_update(); \
-        if(DWORD(__vk_code__)==KeyCodeOf::leader){ \
+        if(_vk_code==KeyCodeOf::leader){ \
             ::handle_detail::is_leader_down=false; \
         } \
-        _println_key_up(DWORD(__vk_code__)); \
+        _println_key_up(_vk_code); \
     } \
 }while(0) \
 //
