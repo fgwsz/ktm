@@ -47,8 +47,7 @@ bool Logger::global_enable_=true;
 bool Logger::init_flag_=Logger::_init();
 bool Logger::_init()noexcept{ // 优化::std::cout输出性能
     ::std::ios::sync_with_stdio(false); // 关闭与stdio的同步
-    ::std::cin.tie(0);// 关闭::std::cout与::std::cin的绑定
-    ::std::cout.tie(0);
+    ::std::cin.tie(nullptr);::std::cout.tie(nullptr); // 关闭::std::cout与::std::cin的绑定
     ::std::cout<<::std::unitbuf; // 设置为无缓冲区，实时输出
     return true;
 }
