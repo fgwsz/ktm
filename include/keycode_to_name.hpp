@@ -105,7 +105,7 @@ static constexpr ::std::string_view keycode_to_name[256]={
     "\\170","\\171","\\172","\\173","\\174","\\175","\\176","\\177","\\178","\\179",
     "\\180","\\181","\\182","\\183","\\184","\\185",
     KeyName_Semicolon         ,//186// ;
-    KeyName_Equal             ,//187// ,//
+    KeyName_Equal             ,//187// =
     KeyName_Comma             ,//188// ,
     KeyName_Hyphen            ,//189// -
     KeyName_Period            ,//190// .
