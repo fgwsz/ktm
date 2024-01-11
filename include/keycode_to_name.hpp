@@ -88,8 +88,15 @@ static constexpr ::std::string_view keycode_to_name[256]={
     KeyName_F10               ,//121
     KeyName_F11               ,//122
     KeyName_F12               ,//123
-    "\\124","\\125","\\126","\\127","\\128","\\129",
-    "\\130","\\131","\\132","\\133","\\134","\\135","\\136","\\137","\\138","\\139",
+    KeyName_F13               ,//124
+    KeyName_F14               ,//125
+    KeyName_F15               ,//126
+    KeyName_F16               ,//127
+    KeyName_F17               ,//128
+    KeyName_F18               ,//129
+    KeyName_F19               ,//130
+    KeyName_F20               ,//131
+    "\\132","\\133","\\134","\\135","\\136","\\137","\\138","\\139",
     "\\140","\\141","\\142","\\143",
     KeyName_NumLock           ,//144
     KeyName_ScrollLock        ,//145
@@ -102,7 +109,14 @@ static constexpr ::std::string_view keycode_to_name[256]={
     KeyName_LeftAlt           ,//164
     KeyName_RightAlt          ,//165
     "\\166","\\167","\\168","\\169",
-    "\\170","\\171","\\172","\\173","\\174","\\175","\\176","\\177","\\178","\\179",
+    "\\170","\\171","\\172",
+    KeyName_MediaVolumeMute   ,//173
+    KeyName_MediaVolumeDown   ,//174
+    KeyName_MediaVolumeUp     ,//175
+    KeyName_MediaNextTrack    ,//176
+    KeyName_MediaPrevTrack    ,//177
+    KeyName_MediaStop         ,//178
+    KeyName_MediaPlayPause    ,//179
     "\\180","\\181","\\182","\\183","\\184","\\185",
     KeyName_Semicolon         ,//186// ;
     KeyName_Equal             ,//187// =
