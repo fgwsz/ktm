@@ -7,6 +7,7 @@ extern "C"{
 #include"logger.hpp"
 #include"keycode_of.hpp"
 #include"keycode_to_name.hpp"
+#include"keycode_has_name.hpp"
 #include"mouse.hpp"
 #include"ordered_set.hpp"
 namespace handle_detail{
@@ -139,14 +140,14 @@ void mouse_right_down(void)noexcept{
 #define _println_key_down() do{ \
     ::handle_detail::keyboard_logger.print_with_head(); \
     ::handle_detail::key_down_set.for_each([](DWORD const& key){ \
-        ::handle_detail::keyboard_logger.print("<",keycode_to_name[key],">"); \
+        ::handle_detail::keyboard_logger.print("<",::keycode_to_name[key],">"); \
     }); \
     ::handle_detail::keyboard_logger.println(" Down"); \
 }while(0) \
 //
 #define _println_key_up(__vk_code__) do{ \
     ::handle_detail::keyboard_logger.println_with_head( \
-        "<",keycode_to_name[DWORD(__vk_code__)],">", \
+        "<",::keycode_to_name[DWORD(__vk_code__)],">", \
         " Up" \
     ); \
 }while(0) \
@@ -172,7 +173,7 @@ void mouse_right_down(void)noexcept{
     if (_w_param==WM_KEYDOWN||_w_param==WM_SYSKEYDOWN) { \
         /*防止其他进程把全局键盘事件截获，造成逻辑上的bug*/ \
         _key_down_set_update(); \
-        if(!::handle_detail::key_down_set.has(_vk_code)){ \
+        if(::keycode_has_name[_vk_code]&&!::handle_detail::key_down_set.has(_vk_code)){ \
             ::handle_detail::key_down_set.insert(_vk_code); \
             _println_key_down(); \
         } \
