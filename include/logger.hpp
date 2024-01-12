@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include<type_traits>
+#include<utility>
 #include<iostream>
 #include<string_view>
 class Logger{
