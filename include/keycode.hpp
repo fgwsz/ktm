@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __KEYCODE_HPP__
+#define __KEYCODE_HPP__
 enum KeyCode{
     KeyCode_A='A',
     KeyCode_B='B',
@@ -108,3 +109,4 @@ enum KeyCode{
     KeyCode_RightSquareBracket=221,// ]
     KeyCode_SingleQuote       =222 // '
 };
+#endif//!__KEYCODE_HPP__

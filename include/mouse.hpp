@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef __MOUSE_HPP__
+#define __MOUSE_HPP__
 #include<Windows.h>
 struct Mouse{
     using position_t=POINT;
@@ -104,4 +105,4 @@ inline OutputStream& operator<<(
     _Mouse_wheel(-static_cast<LONG>(Mouse::current_dpixel_)); \
 }while(0) \
 //
-
+#endif//!__MOUSE_HPP__

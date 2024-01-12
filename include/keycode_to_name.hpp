@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef __KEYCODE_TO_NAME_HPP__
+#define __KEYCODE_TO_NAME_HPP__
 #include<string_view>
 #include"keyname.hpp"
 #define KeyNameOf(__keycode__) "\\"#__keycode__
@@ -138,3 +139,4 @@ static constexpr ::std::string_view keycode_to_name[256]={
     KeyNameOf(240),KeyNameOf(241),KeyNameOf(242),KeyNameOf(243),KeyNameOf(244),KeyNameOf(245),KeyNameOf(246),KeyNameOf(247),KeyNameOf(248),KeyNameOf(249),
     KeyNameOf(250),KeyNameOf(251),KeyNameOf(252),KeyNameOf(253),KeyNameOf(254),KeyNameOf(255)
 };
+#endif//!__KEYCODE_TO_NAME_HPP__

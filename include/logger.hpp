@@ -1,4 +1,5 @@
-﻿#pragma once
+﻿#ifndef __LOGGER_HPP__
+#define __LOGGER_HPP__
 #include<utility>
 #include<iostream>
 #include<string_view>
@@ -43,3 +44,4 @@ bool Logger::_init(void)noexcept{ // 优化::std::cout输出性能
     ::std::cout<<::std::unitbuf; // 设置为无缓冲区，实时输出
     return true;
 }
+#endif//!__LOGGER_HPP__

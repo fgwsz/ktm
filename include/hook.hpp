@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __HOOK_HPP__
+#define __HOOK_HPP__
 #include"handle.hpp"
 namespace hook_detail{
 // 全局键盘钩子回调函数
@@ -42,4 +43,4 @@ static Hook const h_hook={SetWindowsHookEx(WH_KEYBOARD_LL,callback,NULL,0)};
     } \
 }while(0) \
 //
-
+#endif//!__HOOK_HPP__

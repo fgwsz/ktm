@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __HANDLE_HPP__
+#define __HANDLE_HPP__
 extern "C"{
 #include<stdlib.h>
 }
@@ -197,3 +198,4 @@ void mouse_right_down(void)noexcept{
 }while(0) \
 //
 }// namespace handle_detail
+#endif//!__HANDLE_HPP__

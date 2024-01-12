@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __ORDERED_SET_HPP__
+#define __ORDERED_SET_HPP__
 #include<utility>
 #include<unordered_map>
 #include<list>
@@ -29,3 +30,4 @@ public:
         }
     }
 };
+#endif//!__ORDERED_SET_HPP__

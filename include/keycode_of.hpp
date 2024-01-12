@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __KEYCODE_OF_HPP__
+#define __KEYCODE_OF_HPP__
 #include<Windows.h>
 #include"keycode.hpp"
 // 快捷键设置
@@ -20,3 +21,4 @@ struct KeyCodeOf{
     static constexpr DWORD mouse_dpixel_halve     =KeyCode_Hyphen ;// - Decrease
     static constexpr DWORD app_quit               =KeyCode_Q      ;// Quit
 };
+#endif//!__KEYCODE_OF_HPP__

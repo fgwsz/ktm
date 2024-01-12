@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __KEYCODE_HAS_NAME_HPP__
+#define __KEYCODE_HAS_NAME_HPP__
 #define KeyCodeHasName_A                  true
 #define KeyCodeHasName_B                  true
 #define KeyCodeHasName_C                  true
@@ -243,3 +244,4 @@ static constexpr bool keycode_has_name[256]={
     KeyCodeHasNameOf(240),KeyCodeHasNameOf(241),KeyCodeHasNameOf(242),KeyCodeHasNameOf(243),KeyCodeHasNameOf(244),KeyCodeHasNameOf(245),KeyCodeHasNameOf(246),KeyCodeHasNameOf(247),KeyCodeHasNameOf(248),KeyCodeHasNameOf(249),
     KeyCodeHasNameOf(250),KeyCodeHasNameOf(251),KeyCodeHasNameOf(252),KeyCodeHasNameOf(253),KeyCodeHasNameOf(254),KeyCodeHasNameOf(255)
 };
+#endif//!__KEYCODE_HAS_NAME_HPP__

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __KEYNAME_HPP__
+#define __KEYNAME_HPP__
 #define KeyName_A "A"
 #define KeyName_B "B"
 #define KeyName_C "C"
@@ -106,3 +107,4 @@
 #define KeyName_VerticalBar        "|"          
 #define KeyName_RightSquareBracket "]"          
 #define KeyName_SingleQuote        "\'"         
+#endif//!__KEYNAME_HPP__
