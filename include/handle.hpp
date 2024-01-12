@@ -147,10 +147,12 @@ void mouse_right_down(void)noexcept{
 }while(0) \
 //
 #define _println_key_up(__vk_code__) do{ \
-    ::handle_detail::keyboard_logger.println_with_head( \
-        "<",::keycode_to_name[DWORD(__vk_code__)],">", \
-        " Up" \
-    ); \
+    if(::keycode_has_name[__vk_code__]){ \
+        ::handle_detail::keyboard_logger.println_with_head( \
+            "<",::keycode_to_name[DWORD(__vk_code__)],">", \
+            " Up" \
+        ); \
+    } \
 }while(0) \
 //
 #define _key_down_set_update() do{ \
