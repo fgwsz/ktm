@@ -104,3 +104,4 @@ inline OutputStream& operator<<(
     _Mouse_wheel(-static_cast<LONG>(Mouse::current_dpixel_)); \
 }while(0) \
 //
+

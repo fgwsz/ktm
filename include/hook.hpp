@@ -42,3 +42,4 @@ static Hook const h_hook={SetWindowsHookEx(WH_KEYBOARD_LL,callback,NULL,0)};
     } \
 }while(0) \
 //
+
