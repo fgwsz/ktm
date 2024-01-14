@@ -15,11 +15,11 @@ or
 
 ## Visual Studio 构建
 安装`CMake`和`Visual Studio`，安装完成之后，
-鼠标左键双击`msvc_build.ps1`生成`ktm-msvc_build.exe`并运行。
+鼠标左键双击`build-msvc*.ps1`生成`ktm-msvc*.exe`并运行。
 
 ## MinGW-W64 构建
 安装`MinGW-W64`，安装完成之后，
-鼠标左键双击`mingw_build.ps1`生成`ktm-mingw_build.exe`并运行。
+鼠标左键双击`build-mingw*.ps1`生成`ktm-mingw*.exe`并运行。
 
 ## 使用
 将构建生成的二进制文件(.exe)重命名为`ktm.exe`，
